@@ -2,8 +2,8 @@ pipeline {
     agent any
 
     environment {
-        IMAGE_NAME = 'my-flask-app'
-        CONTAINER_NAME = 'flask-app-container'
+        IMAGE_NAME = '0.0.1.RELEASE'
+        CONTAINER_NAME = 'jenkins-deployment'
     }
 
     stages {
@@ -16,6 +16,7 @@ pipeline {
         stage('Build Docker Image') {
             steps {
                 sh "docker build -t ${IMAGE_NAME} ."
+                echo "Building Docker image..."
             }
         }
 
